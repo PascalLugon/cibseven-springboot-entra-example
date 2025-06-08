@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:h2:./cibseven;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: sa
+  h2:
+    console:
+      enabled: true
+camunda:
+  bpm:
+    admin-user:
+      id: demo
+      password: demo
+      firstName: Demo
+      lastName: Demo
+    filter:
+      create: All Tasks
+
+cibseven:
+  webclient:
+    services:
+      basePath: /webapp/services/v1
+
+
+management.endpoints.web.exposure.include: env,info,configprops,loggers,beans
+management.endpoint.env.access: unrestricted
