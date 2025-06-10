@@ -11,6 +11,7 @@
 		<springBoot.version>3.4.6</springBoot.version>
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
+		<azure.version>5.18.0</azure.version>
 	</properties>
 
 	<dependencyManagement>
@@ -34,6 +35,14 @@
 				<scope>import</scope>
 			</dependency>
 
+			<dependency>
+				<groupId>com.azure.spring</groupId>
+				<artifactId>spring-cloud-azure-dependencies</artifactId>
+				<version>${azure.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
@@ -50,6 +59,32 @@
 			<artifactId>cibseven-bpm-spring-boot-starter-webapp</artifactId>
 		</dependency>
 
+		<!-- Security related -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.cibseven.bpm.springboot</groupId>
+			<artifactId>cibseven-bpm-spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.azure.spring</groupId>
+			<artifactId>spring-cloud-azure-starter-active-directory</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.azure</groupId>
+			<artifactId>azure-identity</artifactId>
+			<version>1.14.2</version>
+		</dependency>
 
 		<!-- Spring boot -->
 		<dependency>

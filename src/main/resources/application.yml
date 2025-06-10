@@ -16,6 +16,8 @@ camunda:
     filter:
       create: All Tasks
 
+camunda.bpm.oauth2.base-url: http://localhost:8080/engine-rest
+
 cibseven:
   webclient:
     services:
@@ -24,3 +26,21 @@ cibseven:
 
 management.endpoints.web.exposure.include: env,info,configprops,loggers,beans
 management.endpoint.env.access: unrestricted
+
+# Azure AD Config
+azure.activedirectory.tenant-id: <TO RETRIEVE FROM MS ENTRA CONFIGURATION>
+azure.activedirectory.client-id: <TO RETRIEVE FROM MS ENTRA CONFIGURATION>
+azure.activedirectory.client-secret: ${CLIENT_SECRET}
+azure.activedirectory.authority: https://login.microsoftonline.com/${azure.activedirectory.tenant-id}/
+azure.activedirectory.session-stateless: true
+
+#This Config is used by Azure AD Spring Boot Starter
+spring.security.oauth2.client.registration.azure.client-id: ${azure.activedirectory.client-id}
+spring.security.oauth2.client.registration.azure.client-secret: ${azure.activedirectory.client-secret}
+
+spring.security.oauth2.client.provider.azure.authorization-uri: ${azure.activedirectory.authority}oauth2/v2.0/authorize
+spring.security.oauth2.client.provider.azure.token-uri: ${azure.activedirectory.authority}oauth2/v2.0/token
+
+spring.cloud.azure.active-directory.enabled: true
+spring.cloud.azure.active-directory.credential.client-id: ${azure.activedirectory.client-id}
+spring.cloud.azure.active-directory.app-id-uri: api://${azure.activedirectory.client-id}

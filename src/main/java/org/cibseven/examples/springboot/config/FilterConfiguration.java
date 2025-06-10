@@ -1,6 +1,5 @@
 package org.cibseven.examples.springboot.config;
 
-
 import org.cibseven.bpm.engine.rest.security.auth.ProcessEngineAuthenticationFilter;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -52,4 +51,5 @@ public class FilterConfiguration {
         registrationBean.setOrder(10);// Order of execution if multiple filters
         return registrationBean;
     }
+
 }
